@@ -107,7 +107,6 @@ class Beam:
 class Bomb:
     """
     爆弾に関するクラス
-
     """
     colors = [(255,0,0), (0,255,0),(0,0,255),(255,255,0)]
     directions = [-5, +5]
@@ -209,7 +208,7 @@ def main():
                 return
             
         
-        for i, bomb in enumerate(bombs):
+        for i, bomb in enumerate(bombs): 
             if beam is not None:  
                 if beam.rct.colliderect(bomb.rct):
                     explosion = Explosion(bomb.rct.center)
