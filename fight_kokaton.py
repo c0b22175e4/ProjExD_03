@@ -208,7 +208,7 @@ def main():
                 return
             
         
-        for i, bomb in enumerate(bombs): 
+        for i, bomb in enumerate(bombs): # bombのインデックス番号を表示する
             if beam is not None:  
                 if beam.rct.colliderect(bomb.rct):
                     explosion = Explosion(bomb.rct.center)
