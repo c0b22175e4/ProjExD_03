@@ -141,7 +141,17 @@ class Bomb:
         screen.blit(self.img, self.rct)
 
 
+class Score:
+    def __init__(self):
+        self.font = pg.font.SysFont("hgp創英角ﾎﾟｯﾌﾟ体", 30)
+        self.color = (0, 0, 255)
+        self.value = 0
+        self.img = self.font.render(f"Score: {self.value}", 0, self.color)
+        self.pos = (100, HEIGHT - 50)
 
+    def update(self, screen: pg.Surface):
+        self.img = self.font.render(f"Score: {self.value}", 0, self.color)
+        screen.blit(self.img, self.pos)
 
 
 class Explosion:
@@ -175,6 +185,7 @@ def main():
     bird = Bird(3, (900, 400))
     bombs = [Bomb() for _ in range(NUM_OF_BOMBS)]
     beam = None
+    score = Score()
     explosions = []
 
     clock = pg.time.Clock()
@@ -221,6 +232,7 @@ def main():
             bomb.update(screen)
         if beam is not None:
             beam.update(screen)#順番大切
+        score.update(screen) 
         for explosion in explosions:
             explosion.update()
             explosion.draw(screen)
